@@ -4,15 +4,17 @@ var app = express();
 var indexPath = __dirname + "/views/index.html"
 var assetsPath = __dirname + "/public"
 
-console.log(assetsPath)
-
 app.get("/", function(req, res) {
 	res.sendFile(indexPath)
 })
 
 app.get("/json", function(req, res) {
+  const isUppercase = process.env.MESSAGE_STYLE === "uppercase"
+
+  const message = "Hello json"
+
   res.json({
-    "message": "Hello json"
+    "message": isUppercase ? message.toUpperCase() : message
   })
 })
 
