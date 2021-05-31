@@ -10,7 +10,7 @@ app.get("/", function(req, res) {
 	res.sendFile(indexPath)
 })
 
-app.use(express.static(assetsPath))
+app.use("/public", express.static(assetsPath))
 
 
 
